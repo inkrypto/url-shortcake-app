@@ -11,6 +11,8 @@
     <th>Slug</th>
     <th>Target URL</th>
     <th>Created At</th>
+    <th>Standardized URL</th>
+    <th></th>
   </tr>
   <% @links.each do |link| %>
     <tr>
@@ -18,6 +20,8 @@
       <td><%= link.target_url %></td>
       <td><%= link.created_at %></td>
       <td><%= link.standardize_target_url! %></td>
+      <td><a href="/links/<%= link.id %>">Where'd they come from?</a></td>
     </tr>
   <% end %>
 <table>
+<br>

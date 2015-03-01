@@ -12,8 +12,9 @@ Rails.application.routes.draw do
    end
 
   resources :links
-  
-  get '/:slug' => 'links#redirect'
+  resources :visits
+
+  get '/:slug' => 'visits#create'
   
   # links     GET   /links          links#index
   #           POST  /links          links#create

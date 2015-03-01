@@ -1,4 +1,4 @@
 class Visit < ActiveRecord::Base
-  belongs_to: links
+  belongs_to :link
 
 end
