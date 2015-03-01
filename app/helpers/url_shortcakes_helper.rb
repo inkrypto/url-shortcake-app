@@ -1,0 +1,2 @@
+module UrlShortcakesHelper
+end

@@ -11,7 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150301165314) do
+ActiveRecord::Schema.define(version: 20150301210826) do
+
+  create_table "links", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.string   "slug",       limit: 255
+    t.string   "target_url", limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "urls", force: :cascade do |t|
+    t.string   "url_name",   limit: 255
+    t.integer  "link_id",    limit: 4
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  limit: 255, default: "", null: false
@@ -30,5 +45,12 @@ ActiveRecord::Schema.define(version: 20150301165314) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "visits", force: :cascade do |t|
+    t.integer  "link_id",    limit: 4
+    t.string   "ip_address", limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
 
 end

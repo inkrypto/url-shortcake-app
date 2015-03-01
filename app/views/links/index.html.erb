@@ -1,0 +1,23 @@
+<h1>Welcome to the URL Shortener Applicaiton</h1>
+
+<h1>Your links</h1>
+
+<a href="<%= new_link_path%>">Shorten URL</a>
+
+<h1>Your links</h1>
+
+<table>
+  <tr>
+    <th>Slug</th>
+    <th>Target URL</th>
+    <th>Created At</th>
+  </tr>
+  <% @links.each do |link| %>
+    <tr>
+      <td><%= link.slug %></td>
+      <td><%= link.target_url %></td>
+      <td><%= link.created_at %></td>
+      <td><%= link.standardize_target_url! %></td>
+    </tr>
+  <% end %>
+<table>
